@@ -4,8 +4,6 @@ const fs = require("fs");
 const text = fs.readFileSync("./myfileofnumbers.txt", "utf-8");
 const textByLine = text.split("\n").map((i) => Number(i))
 
-console.log(textByLine);
-
 const countIncrease = function () {
     let count = 0;
     for (let i = 0; i < textByLine.length; i++) {
