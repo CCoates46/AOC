@@ -1,5 +1,11 @@
 'use strict'
 
+var fs = require("fs");
+var text = fs.readFileSync("./input.txt");
+var textByLine = text.split("\n")
+
+console.log(textByLine);
+
 
 /* Take first input value as the start, if the next figure in the file is greater than previous then count, if less then ignore it
 
