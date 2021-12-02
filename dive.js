@@ -10,15 +10,14 @@ const commands = function () {
     let horizontal = 0;
     let depth = 0; 
     for (let i = 0; i < textByLine1.length; i++) {
+        const nums = textByLine1[i].replace(/[^0-9]/g, '');
+        const numsOnly = parseInt(nums);
         if (textByLine1[i].includes('forward')) {
-            const nums = textByLine1[i].replace(/[^0-9]/g, '')
-            horizontal+= parseInt(nums)
+            horizontal+= numsOnly
         } else if (textByLine1[i].includes('up')) {
-            const nums = textByLine1[i].replace(/[^0-9]/g, '')
-            depth -= parseInt(nums)
+            depth -= numsOnly
         } else if (textByLine1[i].includes('down')) {
-            const nums = textByLine1[i].replace(/[^0-9]/g, '')
-            depth += parseInt(nums)
+            depth += numsOnly
         }
     }
         const finalPosition = horizontal * depth
@@ -33,16 +32,15 @@ const commands = function () {
         let depth = 0;
         let aim = 0;
         for (let i = 0; i < textByLine1.length; i++) {
+            const nums = textByLine1[i].replace(/[^0-9]/g, '')
+            const numsOnly = parseInt(nums);
             if (textByLine1[i].includes('up')) {
-                const nums = textByLine1[i].replace(/[^0-9]/g, '')
-                aim -= parseInt(nums)
+                aim -= numsOnly
             } else if (textByLine1[i].includes('down')) {
-                const nums = textByLine1[i].replace(/[^0-9]/g, '')
-                aim += parseInt(nums)
+                aim += numsOnly
             } else if (textByLine1[i].includes('forward')) {
-                const nums = textByLine1[i].replace(/[^0-9]/g, '')
-                horizontal+= parseInt(nums)
-                depth += (aim * parseInt(nums))
+                horizontal+= numsOnly
+                depth += (aim * numsOnly)
             } 
         } 
         const newFinalPosition = horizontal * depth
